@@ -1,62 +1,69 @@
-jan. 18, 2026 5:25:05 PM liquibase.database
+jan. 18, 2026 5:35:03 PM liquibase.database
 INFORMAÇÕES: Set default schema name to public
-jan. 18, 2026 5:25:05 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181604.sql
-jan. 18, 2026 5:25:05 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181639.sql
-jan. 18, 2026 5:25:05 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181707.sql
-jan. 18, 2026 5:25:05 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181714.sql
-jan. 18, 2026 5:25:05 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
+INFORMAÇÕES: Creating database history table with name: public.databasechangelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-jan. 18, 2026 5:25:05 PM liquibase.lockservice
+jan. 18, 2026 5:35:03 PM liquibase.lockservice
 INFORMAÇÕES: Successfully acquired change log lock
-jan. 18, 2026 5:25:05 PM liquibase.command
-INFORMAÇÕES: Using deploymentId: 8767905983
-jan. 18, 2026 5:25:05 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.command
+INFORMAÇÕES: Using deploymentId: 8768503736
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
+Running Changeset: db/changelog/migrations/db.changelog-202601181604.sql::202601181604::claudioneves
+jan. 18, 2026 5:35:03 PM liquibase.changelog
+INFORMAÇÕES: Custom SQL executed
+jan. 18, 2026 5:35:03 PM liquibase.changelog
+INFORMAÇÕES: ChangeSet db/changelog/migrations/db.changelog-202601181604.sql::202601181604::claudioneves ran successfully in 12ms
 Running Changeset: db/changelog/migrations/db.changelog-202601181639.sql::202601181639::claudioneves
-jan. 18, 2026 5:25:06 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Custom SQL executed
-jan. 18, 2026 5:25:06 PM liquibase.changelog
-INFORMAÇÕES: ChangeSet db/changelog/migrations/db.changelog-202601181639.sql::202601181639::claudioneves ran successfully in 19ms
+jan. 18, 2026 5:35:03 PM liquibase.changelog
+INFORMAÇÕES: ChangeSet db/changelog/migrations/db.changelog-202601181639.sql::202601181639::claudioneves ran successfully in 8ms
 Running Changeset: db/changelog/migrations/db.changelog-202601181707.sql::202601181708::claudioneves
-jan. 18, 2026 5:25:06 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Custom SQL executed
-jan. 18, 2026 5:25:06 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: ChangeSet db/changelog/migrations/db.changelog-202601181707.sql::202601181708::claudioneves ran successfully in 6ms
 Running Changeset: db/changelog/migrations/db.changelog-202601181714.sql::202601181714::claudioneves
-jan. 18, 2026 5:25:06 PM liquibase.changelog
+jan. 18, 2026 5:35:03 PM liquibase.changelog
 INFORMAÇÕES: Custom SQL executed
-jan. 18, 2026 5:25:06 PM liquibase.changelog
-INFORMAÇÕES: ChangeSet db/changelog/migrations/db.changelog-202601181714.sql::202601181714::claudioneves ran successfully in 7ms
+jan. 18, 2026 5:35:03 PM liquibase.changelog
+INFORMAÇÕES: ChangeSet db/changelog/migrations/db.changelog-202601181714.sql::202601181714::claudioneves ran successfully in 8ms
 
 UPDATE SUMMARY
-Run:                          3
-Previously run:               1
+Run:                          4
+Previously run:               0
 Filtered out:                 0
 -------------------------------
 Total change sets:            4
 
-jan. 18, 2026 5:25:06 PM liquibase.util
+jan. 18, 2026 5:35:03 PM liquibase.util
 INFORMAÇÕES: UPDATE SUMMARY
-jan. 18, 2026 5:25:06 PM liquibase.util
-INFORMAÇÕES: Run:                          3
-jan. 18, 2026 5:25:06 PM liquibase.util
-INFORMAÇÕES: Previously run:               1
-jan. 18, 2026 5:25:06 PM liquibase.util
+jan. 18, 2026 5:35:03 PM liquibase.util
+INFORMAÇÕES: Run:                          4
+jan. 18, 2026 5:35:03 PM liquibase.util
+INFORMAÇÕES: Previously run:               0
+jan. 18, 2026 5:35:03 PM liquibase.util
 INFORMAÇÕES: Filtered out:                 0
-jan. 18, 2026 5:25:06 PM liquibase.util
+jan. 18, 2026 5:35:03 PM liquibase.util
 INFORMAÇÕES: -------------------------------
-jan. 18, 2026 5:25:06 PM liquibase.util
+jan. 18, 2026 5:35:03 PM liquibase.util
 INFORMAÇÕES: Total change sets:            4
-jan. 18, 2026 5:25:06 PM liquibase.util
+jan. 18, 2026 5:35:03 PM liquibase.util
 INFORMAÇÕES: Update summary generated
-jan. 18, 2026 5:25:06 PM liquibase.command
+jan. 18, 2026 5:35:03 PM liquibase.command
 INFORMAÇÕES: Update command completed successfully.
-Liquibase: Update has been successful. Rows affected: 3
-jan. 18, 2026 5:25:06 PM liquibase.lockservice
+Liquibase: Update has been successful. Rows affected: 4
+jan. 18, 2026 5:35:03 PM liquibase.lockservice
 INFORMAÇÕES: Successfully released change log lock
-jan. 18, 2026 5:25:06 PM liquibase.command
+jan. 18, 2026 5:35:03 PM liquibase.command
 INFORMAÇÕES: Command execution complete
