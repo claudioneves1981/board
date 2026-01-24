@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/br/com/dio/persistence/dao/BoardColumnDAO.java" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/br/com/dio/persistence/dao/BoardDAO.java" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181604.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181639.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181707.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181714.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/br/com/dio/persistence/dao/impl/BoardColumnDAOImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/br/com/dio/persistence/dao/impl/BoardDAOImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181604.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181639.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181707.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181714.sql" dialect="MySQL" />
+    <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

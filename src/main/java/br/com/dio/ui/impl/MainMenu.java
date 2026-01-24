@@ -1,10 +1,11 @@
-package br.com.dio.ui;
+package br.com.dio.ui.impl;
 
 import br.com.dio.persistence.entity.BoardColumnEntity;
 import br.com.dio.persistence.entity.BoardColumnKindEnum;
 import br.com.dio.persistence.entity.BoardEntity;
 import br.com.dio.service.BoardQueryService;
 import br.com.dio.service.BoardService;
+import br.com.dio.ui.UIExecute;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,10 +15,12 @@ import java.util.Scanner;
 import static br.com.dio.persistence.config.ConnectionConfig.getConnection;
 import static br.com.dio.persistence.entity.BoardColumnKindEnum.*;
 
-public class MainMenu {
+public class MainMenu implements UIExecute {
 
     private final Scanner scanner = new Scanner(System.in);
 
+
+    @Override
     public void execute() throws SQLException{
         System.out.println("Bem vindo ao gerenciador de boards, escolha a opção desejada");
         var option = -1;
@@ -59,7 +62,13 @@ public class MainMenu {
             var queryService = new BoardQueryService(connection);
             var optional = queryService.findById(id);
             optional.ifPresentOrElse(
-                    b -> new BoardMenu(b).execute(),
+                    b -> {
+                        try {
+                            new BoardMenu(b).execute();
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+                    },
                     () -> System.out.printf("Não foi encontrado um board com id %s\n",id)
             );
         }
@@ -77,23 +86,27 @@ public class MainMenu {
         System.out.println("Informe o nome da coluna inicial do board");
         var initialColumnName = scanner.next();
         var initialColumn = createColumn(initialColumnName, INITIAL, 0);
+        //initialColumn.setBoard(entity);
         columns.add(initialColumn);
 
         for (int a = 0; a < additionalColumns; a++) {
             System.out.println("Informe o nome da coluna de tarefa pendente do board");
             var pendingColumnName = scanner.next();
             var pendingColumn = createColumn(pendingColumnName, PENDING, a+1 );
+           // pendingColumn.setBoard(entity);
             columns.add(pendingColumn);
         }
 
         System.out.println("Informe o nome da coluna final do board");
         var finalColumnName = scanner.next();
         var finalColumn = createColumn(finalColumnName, FINAL, additionalColumns + 1);
+       // finalColumn.setBoard(entity);
         columns.add(finalColumn);
 
         System.out.println("Informe o nome da coluna de cancelamento do board");
         var cancelColumnName = scanner.next();
-        var cancelColumn = createColumn(cancelColumnName, CANCEL, additionalColumns + 1);
+        var cancelColumn = createColumn(cancelColumnName, CANCEL, additionalColumns + 2);
+        //cancelColumn.setBoard(entity);
         columns.add(cancelColumn);
 
         entity.setBoardColumns(columns);

@@ -1,7 +1,7 @@
 package br.com.dio.service;
 
-import br.com.dio.persistence.dao.BoardColumnDAO;
-import br.com.dio.persistence.dao.BoardDAO;
+import br.com.dio.persistence.dao.impl.BoardColumnDAOImpl;
+import br.com.dio.persistence.dao.impl.BoardDAOImpl;
 import br.com.dio.persistence.entity.BoardEntity;
 import lombok.AllArgsConstructor;
 
@@ -15,8 +15,8 @@ public class BoardQueryService {
     private final Connection connection;
 
     public Optional<BoardEntity> findById(final Long id) throws SQLException{
-        var dao = new BoardDAO(connection);
-        var boardColumnDAO = new BoardColumnDAO(connection);
+        var dao = new BoardDAOImpl(connection);
+        var boardColumnDAO = new BoardColumnDAOImpl(connection);
         var optional = dao.findById(id);
         if(optional.isPresent()){
             var entity = optional.get();

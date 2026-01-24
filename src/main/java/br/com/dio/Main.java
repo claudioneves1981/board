@@ -1,8 +1,10 @@
 package br.com.dio;
 
 import br.com.dio.persistence.migration.MigrationStrategy;
+import br.com.dio.ui.impl.MainMenu;
 
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import static br.com.dio.persistence.config.ConnectionConfig.getConnection;
 
@@ -12,5 +14,6 @@ public class Main {
         try(var connection = getConnection()){
             new MigrationStrategy(connection).executeMigration();
         }
+        new MainMenu().execute();
     }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181604.sql" value="02bca0b1-8dd9-48b1-9fc7-a0c5823d55e2" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181639.sql" value="02bca0b1-8dd9-48b1-9fc7-a0c5823d55e2" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181707.sql" value="02bca0b1-8dd9-48b1-9fc7-a0c5823d55e2" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/migrations/db.changelog-202601181714.sql" value="02bca0b1-8dd9-48b1-9fc7-a0c5823d55e2" />
+  </component>
+</project>

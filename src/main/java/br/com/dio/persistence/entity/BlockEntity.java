@@ -1,13 +1,14 @@
 package br.com.dio.persistence.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.OffsetDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class BlockEntity {
+public class BlockEntity extends BaseEntity{
 
-    private Long id;
     private OffsetDateTime blockedAt;
     private String blockReason;
     private OffsetDateTime unblockedAt;

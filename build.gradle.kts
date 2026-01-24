@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation("org.liquibase:liquibase-core:4.29.1")
-    implementation("org.postgresql:postgresql:42.7.9")
+    implementation("com.mysql:mysql-connector-j:8.3.0")
     implementation("org.projectlombok:lombok:1.18.34")
 
     annotationProcessor("org.projectlombok:lombok:1.18.34")

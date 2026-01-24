@@ -3,8 +3,9 @@
 --comment: boards table create
 
     CREATE TABLE BOARDS(
-        id serial primary key,
+        id BIGINT AUTO_INCREMENT primary key ,
         name VARCHAR(255) NOT NULL
-    );
+    )
+ENGINE=InnoDB;
 
 --rollback DROP TABLE BOARDS

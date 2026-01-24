@@ -14,8 +14,8 @@ public final class ConnectionConfig {
 
     public static Connection getConnection() throws SQLException {
 
-        var url = "jdbc:postgresql://localhost:5432/board";
-        var user = "postgres";
+        var url = "jdbc:mysql://localhost:3306/board";
+        var user = "claudioneves";
         var password = "Neves123";
         var connection = DriverManager.getConnection(url, user,password);
         connection.setAutoCommit(false);
