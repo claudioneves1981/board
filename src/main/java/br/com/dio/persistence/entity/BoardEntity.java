@@ -11,7 +11,6 @@ import java.util.List;
 @Data
 public class BoardEntity extends BaseEntity{
 
-    //private Long id;
     private String name;
 
     @ToString.Exclude

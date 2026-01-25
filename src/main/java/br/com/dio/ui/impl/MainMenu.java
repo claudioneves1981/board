@@ -17,7 +17,7 @@ import static br.com.dio.persistence.entity.BoardColumnKindEnum.*;
 
 public class MainMenu implements UIExecute {
 
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
 
     @Override
@@ -62,13 +62,7 @@ public class MainMenu implements UIExecute {
             var queryService = new BoardQueryService(connection);
             var optional = queryService.findById(id);
             optional.ifPresentOrElse(
-                    b -> {
-                        try {
-                            new BoardMenu(b).execute();
-                        } catch (SQLException e) {
-                            throw new RuntimeException(e);
-                        }
-                    },
+                    b -> new BoardMenu(b).execute(),
                     () -> System.out.printf("Não foi encontrado um board com id %s\n",id)
             );
         }

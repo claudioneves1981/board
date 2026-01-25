@@ -7,8 +7,6 @@ import lombok.EqualsAndHashCode;
 @Data
 public class BoardColumnEntity extends BaseEntity {
 
-    //private Long id;
-
     private String name;
     private Integer order;
     private BoardColumnKindEnum kind;
