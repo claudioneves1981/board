@@ -68,7 +68,7 @@ public class BoardColumnDAOImpl implements BoardColumnDAO {
         List<BoardColumnDTO> dtos = new ArrayList<>();
         var sql =
         """
-        SELECT bc.id , 
+        SELECT bc.id, 
                bc.name,  
                bc.kind 
                COUNT(SELECT c.id 
