@@ -14,6 +14,7 @@ public class BoardEntity extends BaseEntity{
     private String name;
 
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<BoardColumnEntity> boardColumns = new ArrayList<>();
 
 }
