@@ -1,10 +1,13 @@
 package br.com.dio.ui.impl;
 
 import br.com.dio.persistence.entity.BoardColumnEntity;
+import br.com.dio.persistence.entity.BoardColumnKindEnum;
 import br.com.dio.persistence.entity.BoardEntity;
+import br.com.dio.persistence.entity.CardEntity;
 import br.com.dio.service.BoardColumnQueryService;
 import br.com.dio.service.BoardQueryService;
 import br.com.dio.service.CardQueryService;
+import br.com.dio.service.CardService;
 import br.com.dio.ui.UIExecute;
 import lombok.AllArgsConstructor;
 
@@ -12,6 +15,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import static br.com.dio.persistence.config.ConnectionConfig.getConnection;
+import static br.com.dio.persistence.entity.BoardColumnKindEnum.INITIAL;
 
 @AllArgsConstructor
 public class BoardMenu implements UIExecute {
@@ -25,7 +29,7 @@ public class BoardMenu implements UIExecute {
         //scanner = new Scanner(System.in);
      try {
 
-         System.out.printf("Bem vindo ao board %s, selecione a operação desejada", entity.getId());
+         System.out.printf("Bem vindo ao board %s, selecione a operação desejada\n", entity.getId());
          var option = -1;
          while (option != 9) {
              System.out.println("1- Criar um card");
@@ -59,7 +63,17 @@ public class BoardMenu implements UIExecute {
      }
     }
 
-    private void createCard() {
+    private void createCard() throws SQLException{
+        var card = new CardEntity();
+        System.out.println("Informe o titulo do card");
+        card.setTitle(scanner.next());
+        System.out.println("Informe a descrição do card");
+        card.setDescription(scanner.next());
+        card.setBoardColumn(entity.getInitialColumn());
+        try(var connection = getConnection()){
+            new CardService(connection).insert(card);
+        }
+
     }
 
     private void moveCardToNextColumn() {
@@ -78,9 +92,9 @@ public class BoardMenu implements UIExecute {
         try(var connection = getConnection()){
             var optional = new BoardQueryService(connection).showBoardDetails(entity.getId());
             optional.ifPresent(b -> {
-                System.out.printf("Board [%s,%s\n",b.id(),b.name());
+                System.out.printf("Board [%s,%s]\n",b.id(),b.name());
                 b.columns().forEach(c ->{
-                    System.out.printf("Coluna [%s] tipo: [%s] tem %s cards", c.name(), c.kind(),c.cardsAmount());
+                    System.out.printf("Coluna [%s] tipo: [%s] tem %s cards\n", c.name(), c.kind(),c.cardsAmount());
                 });
 
             });
@@ -98,7 +112,7 @@ public class BoardMenu implements UIExecute {
         while(!columnsIds.contains(selectedColumn)){
             System.out.printf("Escolha uma coluna do board %s\n", entity.getName());
             entity.getBoardColumns().forEach(c ->
-                    System.out.printf("%s - %s [%s]",c.getId(),c.getName(), c.getKind()));
+                    System.out.printf("%s - %s [%s]\n",c.getId(),c.getName(), c.getKind()));
             selectedColumn= scanner.nextLong();
         }
         try(var connection = getConnection()){
@@ -127,10 +141,10 @@ public class BoardMenu implements UIExecute {
                                 System.out.println(c.blocked() ?
                                         "Esta Bloqueado. Motivo:" + c.blockReason():
                                         "Não está bloqueado");
-                                System.out.printf("Já foi bloqueado %s vezes",c.blocksAmount());
+                                System.out.printf("Já foi bloqueado %s vezes\n",c.blocksAmount());
                                 System.out.printf("Está no momento na coluna %s - %s\n",c.columnId(), c.columnName());
                             },
-                            ()-> System.out.printf("Não existe um card com o id %s",selectedCardId));
+                            ()-> System.out.printf("Não existe um card com o id %s\n",selectedCardId));
         }
 
 
