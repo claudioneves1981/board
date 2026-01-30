@@ -5,5 +5,6 @@ import br.com.dio.persistence.entity.BoardEntity;
 
 public interface BoardDAO extends DAO<BoardEntity> {
 
+    void delete(Long id);
 
 }

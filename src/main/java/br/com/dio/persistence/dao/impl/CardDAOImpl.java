@@ -18,7 +18,8 @@ public class CardDAOImpl implements CardDAO {
 
     private Connection connection;
 
-    public CardEntity insert(final CardEntity entity) throws SQLException{
+    @Override
+    public void insert(final CardEntity entity) throws SQLException{
         var sql = "INSERT INTO CARDS(title, description, board_column_id)VALUES(?,?,?);";
         try(var statement = connection.prepareStatement(sql)){
             var i = 1;
@@ -30,7 +31,6 @@ public class CardDAOImpl implements CardDAO {
                  entity.setId(impl.getLastInsertID());
             }
         }
-        return entity;
     }
 
     @Override
@@ -73,6 +73,7 @@ public class CardDAOImpl implements CardDAO {
                         resultSet.getString("bc.name")
 
                 );
+                return Optional.of(dto);
             }
 
         }

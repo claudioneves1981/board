@@ -101,6 +101,7 @@ public class BoardColumnDAOImpl implements BoardColumnDAO {
 
     }
 
+    @Override
     public Optional<BoardColumnEntity> findById(Long boardId) throws SQLException {
 
         var sql =
