@@ -12,4 +12,6 @@ public interface CardDAO {
 
    void insert(final CardEntity entity) throws SQLException;
 
+   void update(final Long cardId, final Long columnId) throws SQLException;
+
 }

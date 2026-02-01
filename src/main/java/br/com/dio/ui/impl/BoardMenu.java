@@ -1,7 +1,7 @@
 package br.com.dio.ui.impl;
 
+import br.com.dio.dto.BoardColumnInfoDTO;
 import br.com.dio.persistence.entity.BoardColumnEntity;
-import br.com.dio.persistence.entity.BoardColumnKindEnum;
 import br.com.dio.persistence.entity.BoardEntity;
 import br.com.dio.persistence.entity.CardEntity;
 import br.com.dio.service.BoardColumnQueryService;
@@ -15,7 +15,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import static br.com.dio.persistence.config.ConnectionConfig.getConnection;
-import static br.com.dio.persistence.entity.BoardColumnKindEnum.INITIAL;
 
 @AllArgsConstructor
 public class BoardMenu implements UIExecute {
@@ -71,12 +70,24 @@ public class BoardMenu implements UIExecute {
         card.setDescription(scanner.next());
         card.setBoardColumn(entity.getInitialColumn());
         try(var connection = getConnection()){
-            new CardService(connection).insert(card);
+            new CardService(connection).create(card);
         }
 
     }
 
-    private void moveCardToNextColumn() {
+    private void moveCardToNextColumn() throws SQLException{
+        System.out.println("Informe o id do card que deseja mover para a próxima coluna");
+        var cardId = scanner.nextLong();
+        var boardColumnInfo = entity.getBoardColumns().stream()
+                .map(bc -> new BoardColumnInfoDTO(bc.getId(),bc.getOrder(),bc.getKind()))
+                .toList();
+        try(var connection = getConnection()){
+            new CardService(connection).moveToNextColumn(cardId,boardColumnInfo);
+        } catch(RuntimeException ex){
+            System.err.println(ex.getMessage());
+        }
+
+
     }
 
     private void blockCard() {
