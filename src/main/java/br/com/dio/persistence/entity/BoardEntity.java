@@ -6,7 +6,9 @@ import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
+import static br.com.dio.persistence.entity.BoardColumnKindEnum.CANCEL;
 import static br.com.dio.persistence.entity.BoardColumnKindEnum.INITIAL;
 
 @EqualsAndHashCode(callSuper = true)
@@ -20,9 +22,19 @@ public class BoardEntity extends BaseEntity{
     private List<BoardColumnEntity> boardColumns = new ArrayList<>();
 
     public BoardColumnEntity getInitialColumn(){
+        return getFilteredColumn(bc -> bc.getKind().equals(INITIAL));
+    }
+
+    public BoardColumnEntity getCancelColumn(){
+        return getFilteredColumn(bc -> bc.getKind().equals(CANCEL));
+    }
+
+    private BoardColumnEntity getFilteredColumn(Predicate<BoardColumnEntity> filter){
         return boardColumns.stream()
-                .filter(bc -> bc.getKind().equals(INITIAL))
+                .filter(filter)
                 .findFirst().orElseThrow();
     }
+
+
 
 }

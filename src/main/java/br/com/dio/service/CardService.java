@@ -1,6 +1,7 @@
 package br.com.dio.service;
 
 import br.com.dio.dto.BoardColumnInfoDTO;
+import br.com.dio.dto.CardDetailsDTO;
 import br.com.dio.exception.CardBlockException;
 import br.com.dio.exception.CardFinishedException;
 import br.com.dio.exception.EntityNotFoundException;
@@ -55,7 +56,7 @@ public class CardService {
            var nextColumn = boardColumnsInfo.stream()
                    .filter(bc -> bc.order() == currentColumn.order() + 1)
                    .findFirst()
-                   .orElseThrow();
+                   .orElseThrow(() -> new IllegalStateException("O Card está cancelado"));
            dao.update(nextColumn.id(),cardId);
            connection.commit();
 
@@ -67,4 +68,39 @@ public class CardService {
        }
 
     }
+
+    public void cancel(final Long cardId, final Long cancelColumnId, List<BoardColumnInfoDTO> boardColumnsInfo) throws SQLException {
+        try{
+
+            var dao = new CardDAOImpl(connection);
+            var optional = dao.findById(cardId);
+            var dto = optional.orElseThrow(
+                    ()-> new EntityNotFoundException("O card de id %s não foi encontrado".formatted(cardId))
+            );
+            if(dto.blocked()){
+                var message = "O card %s está bloqueado, é necessário desbloquea-lo para mover".formatted(cardId);
+                throw new CardBlockException(message);
+            }
+            var currentColumn = boardColumnsInfo.stream()
+                    .filter(bc -> bc.id().equals(dto.columnId()))
+                    .findFirst()
+                    .orElseThrow(()-> new IllegalStateException("O card informado pertence a outro board"));
+            if(currentColumn.kind().equals(FINAL)){
+                throw new CardFinishedException("O card já foi finalizado");
+            }
+           boardColumnsInfo.stream()
+                    .filter(bc -> bc.order() == currentColumn.order() + 1)
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalStateException("O Card está cancelado"));
+            dao.update(cancelColumnId,cardId);
+            connection.commit();
+        }catch(SQLException ex){
+            connection.rollback();
+            throw ex;
+
+        }
+    }
+
+
+
 }

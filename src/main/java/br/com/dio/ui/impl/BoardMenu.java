@@ -96,7 +96,19 @@ public class BoardMenu implements UIExecute {
     private void unblockCard() {
     }
 
-    private void cancelCard() {
+    private void cancelCard() throws SQLException{
+        System.out.println("Informe o id do card que deseja mover para a coluna de cancelamento");
+        var cardId = scanner.nextLong();
+        var cancelColumn = entity.getCancelColumn();
+        var boardColumnInfo = entity.getBoardColumns().stream()
+                .map(bc -> new BoardColumnInfoDTO(bc.getId(),bc.getOrder(),bc.getKind()))
+                .toList();
+        try(var connection = getConnection()){
+            new CardService(connection).cancel(cardId, cancelColumn.getId(), boardColumnInfo);
+        } catch(RuntimeException ex){
+            System.err.println(ex.getMessage());
+        }
+
     }
 
     private void showBoard() throws SQLException{

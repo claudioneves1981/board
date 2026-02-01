@@ -1,15 +1,15 @@
-jan. 31, 2026 9:05:03 PM liquibase.changelog
+jan. 31, 2026 9:54:48 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181604.sql
-jan. 31, 2026 9:05:03 PM liquibase.changelog
+jan. 31, 2026 9:54:48 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181639.sql
-jan. 31, 2026 9:05:03 PM liquibase.changelog
+jan. 31, 2026 9:54:48 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181707.sql
-jan. 31, 2026 9:05:03 PM liquibase.changelog
+jan. 31, 2026 9:54:48 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202601181714.sql
-jan. 31, 2026 9:05:03 PM liquibase.changelog
+jan. 31, 2026 9:54:49 PM liquibase.changelog
 INFORMAÇÕES: Reading from board.DATABASECHANGELOG
 Database is up to date, no changesets to execute
-jan. 31, 2026 9:05:03 PM liquibase.changelog
+jan. 31, 2026 9:54:49 PM liquibase.changelog
 INFORMAÇÕES: Reading from board.DATABASECHANGELOG
 
 UPDATE SUMMARY
@@ -19,21 +19,21 @@ Filtered out:                 0
 -------------------------------
 Total change sets:            4
 
-jan. 31, 2026 9:05:03 PM liquibase.util
+jan. 31, 2026 9:54:49 PM liquibase.util
 INFORMAÇÕES: UPDATE SUMMARY
-jan. 31, 2026 9:05:03 PM liquibase.util
+jan. 31, 2026 9:54:49 PM liquibase.util
 INFORMAÇÕES: Run:                          0
-jan. 31, 2026 9:05:03 PM liquibase.util
+jan. 31, 2026 9:54:49 PM liquibase.util
 INFORMAÇÕES: Previously run:               4
-jan. 31, 2026 9:05:03 PM liquibase.util
+jan. 31, 2026 9:54:49 PM liquibase.util
 INFORMAÇÕES: Filtered out:                 0
-jan. 31, 2026 9:05:03 PM liquibase.util
+jan. 31, 2026 9:54:49 PM liquibase.util
 INFORMAÇÕES: -------------------------------
-jan. 31, 2026 9:05:03 PM liquibase.util
+jan. 31, 2026 9:54:49 PM liquibase.util
 INFORMAÇÕES: Total change sets:            4
-jan. 31, 2026 9:05:03 PM liquibase.util
+jan. 31, 2026 9:54:49 PM liquibase.util
 INFORMAÇÕES: Update summary generated
-jan. 31, 2026 9:05:03 PM liquibase.lockservice
+jan. 31, 2026 9:54:49 PM liquibase.lockservice
 INFORMAÇÕES: Successfully released change log lock
-jan. 31, 2026 9:05:03 PM liquibase.command
+jan. 31, 2026 9:54:49 PM liquibase.command
 INFORMAÇÕES: Command execution complete
