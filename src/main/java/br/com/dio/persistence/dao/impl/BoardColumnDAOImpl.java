@@ -107,7 +107,7 @@ public class BoardColumnDAOImpl implements BoardColumnDAO {
         var sql =
         """
         SELECT bc.name, 
-               bc.kind 
+               bc.kind,
                c.id,
                c.title,
                c.description
