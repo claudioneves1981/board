@@ -166,7 +166,7 @@ public class BoardMenu implements UIExecute {
             var column = new BoardColumnQueryService(connection).findById(selectedColumn);
             column.ifPresent(co -> {
                         System.out.printf("Coluna %s tipo %s\n", co.getName(), co.getKind());
-                        co.getCards().forEach(ca -> System.out.printf("Card %s - %s\nDescricão: %s",
+                        co.getCards().forEach(ca -> System.out.printf("Card %s - %s\nDescricão: %s\n",
                                 ca.getId(),ca.getTitle(),ca.getDescription()));
                     });
 
